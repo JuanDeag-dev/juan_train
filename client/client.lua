@@ -40,7 +40,6 @@ AddEventHandler('Trainroute', function(n)
         local trainWagonModel = N_0x8df5f6a19f99f0d5(trainHash, wagonIndex)
         while not HasModelLoaded(trainWagonModel) do
             Citizen.InvokeNative(0xFA28FE3A6246FC30,trainWagonModel,1)
-            RequestModel(model,1)
             Citizen.Wait(100)
         end
     end
