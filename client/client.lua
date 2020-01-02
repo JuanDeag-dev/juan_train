@@ -5,16 +5,16 @@ local TRAIN_HASHES = {
 CURRENT_TRAIN = nil
 
 local stops = {
-    {["dst"] = 180.0, ["dst2"] = 3.0, ["x"] = -142.67, ["y"] = 654.18,  ["z"] = 113.52, ["time"] = 60000, ["name"] = "Valentine Station"},
-    {["dst"] = 180.0, ["dst2"] = 3.0, ["x"] = 2768.62, ["y"] = -1417.07,["z"] = 46.00,  ["time"] = 60000, ["name"] = "Saint Denis Station"},
-    {["dst"] = 180.0, ["dst2"] = 3.0, ["x"] = 1268.25, ["y"] = -1349.71,["z"] = 76.42,  ["time"] = 60000, ["name"] = "Rhodes Station"},
-    {["dst"] = 180.0, ["dst2"] = 3.0, ["x"] = -358.08, ["y"] = -358.55, ["z"] = 87.28,  ["time"] = 30000, ["name"] = "Flatneck Station"},
-    {["dst"] = 180.0, ["dst2"] = 3.0, ["x"] = -1112.55,["y"] = -571.94, ["z"] = 82.36,  ["time"] = 30000, ["name"] = "Riggs Station"},
-    {["dst"] = 180.0, ["dst2"] = 3.0, ["x"] = -1311.3, ["y"] = 401.38,  ["z"] = 95.75,  ["time"] = 30000, ["name"] = "Wallace Station"},
-    {["dst"] = 180.0, ["dst2"] = 3.0, ["x"] = 610.54,  ["y"] = 1661.53, ["z"] = 188.0,  ["time"] = 30000, ["name"] = "Bacchus Station"},
-    {["dst"] = 180.0, ["dst2"] = 3.0, ["x"] = 2971.43, ["y"] = 1321.43, ["z"] = 44.26,  ["time"] = 60000, ["name"] = "Anusburg Station"},
-    {["dst"] = 180.0, ["dst2"] = 3.0, ["x"] = 2905.30, ["y"] = 683.17,  ["z"] = 57.73,  ["time"] = 60000, ["name"] = "Van Horn Tradin Post"}
-}
+    {["dst"] = 180.0, ["dst2"] = 3.0, ["x"] = -142.67,  ["y"] = 654.18,   ["z"] = 113.52, ["time"] = 60000, ["name"] = "Valentine Station"},
+    {["dst"] = 180.0, ["dst2"] = 3.0, ["x"] = 2685.39,  ["y"] = -1480.33, ["z"] = 45.80,  ["time"] = 60000, ["name"] = "Saint Denis Station"},
+    {["dst"] = 180.0, ["dst2"] = 3.0, ["x"] = 1197.48,  ["y"] = -1282.29, ["z"] = 76.45,  ["time"] = 60000, ["name"] = "Rhodes Station"},
+    {["dst"] = 180.0, ["dst2"] = 3.0, ["x"] = -379.38,  ["y"] = -369.51,  ["z"] = 86.44,  ["time"] = 30000, ["name"] = "Flatneck Station"},
+    {["dst"] = 180.0, ["dst2"] = 3.0, ["x"] = -1118.27, ["y"] = -567.17,  ["z"] = 82.67,  ["time"] = 30000, ["name"] = "Riggs Station"},
+    {["dst"] = 180.0, ["dst2"] = 3.0, ["x"] = -1291.04, ["y"] = 440.69,   ["z"] = 94.36,  ["time"] = 30000, ["name"] = "Wallace Station"},
+    {["dst"] = 180.0, ["dst2"] = 3.0, ["x"] = 610.54,   ["y"] = 1661.53,  ["z"] = 188.0,  ["time"] = 30000, ["name"] = "Bacchus Station"},
+    {["dst"] = 180.0, ["dst2"] = 3.0, ["x"] = 2914.50,  ["y"] = 1238.53,  ["z"] = 44.73,  ["time"] = 60000, ["name"] = "Anusburg Station"},
+    {["dst"] = 180.0, ["dst2"] = 3.0, ["x"] = 2879.30,  ["y"] = 592.75,   ["z"] = 57.84,  ["time"] = 60000, ["name"] = "Van Horn Tradin Post"}
+} 
 
 local trainspawned = false
 local onstartup = true
