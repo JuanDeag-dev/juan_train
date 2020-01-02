@@ -1,4 +1,4 @@
-Train script for redmrp
+Train script for redmrp. it starts at Valentine and goes around down to saint denis and loops around the whole map. it DOES NOT return to Valentine.
 
 alpha state atm.
 
