@@ -5,15 +5,15 @@ local TRAIN_HASHES = {
 CURRENT_TRAIN = nil
 
 local stops = {
-	{["distance"] = 50.0, ["x"] = 2768.62, ["y"] = -1417.07,["z"] = 46.00,  ["time"] = 60000, ["name"] = "Saint Denis Station"},
-	{["distance"] = 50.0, ["x"] = 1268.25, ["y"] = -1349.71,["z"] = 76.42,  ["time"] = 60000, ["name"] = "Rhodes Station"},
-	{["distance"] = 50.0, ["x"] = -358.08, ["y"] = -358.55, ["z"] = 87.28,  ["time"] = 30000, ["name"] = "Flatneck Station"},
-	{["distance"] = 50.0, ["x"] = -1112.55,["y"] = -571.94, ["z"] = 82.36,  ["time"] = 30000, ["name"] = "Riggs Station"},
-	{["distance"] = 50.0, ["x"] = -1311.3, ["y"] = 401.38,  ["z"] = 95.75,  ["time"] = 30000, ["name"] = "Wallace Station"},
-	{["distance"] = 50.0, ["x"] = 610.54,  ["y"] = 1661.53, ["z"] = 188.0,  ["time"] = 30000, ["name"] = "Bacchus Station"},
-	{["distance"] = 50.0, ["x"] = 2971.43, ["y"] = 1321.43, ["z"] = 44.26,  ["time"] = 60000, ["name"] = "Anusburg Station"},
-	{["distance"] = 50.0, ["x"] = 2905.30, ["y"] = 683.17,  ["z"] = 57.73,  ["time"] = 60000, ["name"] = "Van Horn Tradin Post"},
-	{["distance"] = 50.0, ["x"] = -174.73, ["y"] = 611.82,  ["z"] = 113.51, ["time"] = 60000, ["name"] = "Valentine Station"}
+	{["distance"] = 15.0, ["x"] = 2768.62, ["y"] = -1417.07,["z"] = 46.00,  ["time"] = 60000, ["name"] = "Saint Denis Station"},
+	{["distance"] = 15.0, ["x"] = 1268.25, ["y"] = -1349.71,["z"] = 76.42,  ["time"] = 60000, ["name"] = "Rhodes Station"},
+	{["distance"] = 15.0, ["x"] = -358.08, ["y"] = -358.55, ["z"] = 87.28,  ["time"] = 30000, ["name"] = "Flatneck Station"},
+	{["distance"] = 15.0, ["x"] = -1112.55,["y"] = -571.94, ["z"] = 82.36,  ["time"] = 30000, ["name"] = "Riggs Station"},
+	{["distance"] = 15.0, ["x"] = -1311.3, ["y"] = 401.38,  ["z"] = 95.75,  ["time"] = 30000, ["name"] = "Wallace Station"},
+	{["distance"] = 15.0, ["x"] = 610.54,  ["y"] = 1661.53, ["z"] = 188.0,  ["time"] = 30000, ["name"] = "Bacchus Station"},
+	{["distance"] = 15.0, ["x"] = 2971.43, ["y"] = 1321.43, ["z"] = 44.26,  ["time"] = 60000, ["name"] = "Anusburg Station"},
+	{["distance"] = 15.0, ["x"] = 2905.30, ["y"] = 683.17,  ["z"] = 57.73,  ["time"] = 60000, ["name"] = "Van Horn Tradin Post"},
+	{["distance"] = 15.0, ["x"] = -174.73, ["y"] = 611.82,  ["z"] = 113.51, ["time"] = 60000, ["name"] = "Valentine Station"}
 }
 
 local trainspawned = false
@@ -51,7 +51,7 @@ AddEventHandler('Trainroute', function(n)
     local coords = GetEntityCoords(train)
     local trainV = vector3(coords.x, coords.y, coords.z)
     local stopspeed = 0.0
-    local cruisespeed = 25.0
+    local cruisespeed = 14.0
 
     --blip--
     local blipname = "Train"
@@ -82,7 +82,7 @@ AddEventHandler('Trainroute', function(n)
     			SetTrainCruiseSpeed(train, cruisespeed)
     		elseif distance > stops[i]["distance"] then
     			SetTrainCruiseSpeed(train, cruisespeed)
-    			Wait(100)
+    			Wait(50)
     		end
     	end
     end
