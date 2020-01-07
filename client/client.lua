@@ -49,7 +49,7 @@ AddEventHandler('Trainroute', function(n)
     end
     --spawn--
     local ped = PlayerPedId()
-    local train = N_0xc239dbd9a57d2a71(trainHash, 48.70, 16.49, 102.56, 0, 0, 1, 1)
+    local train = N_0xc239dbd9a57d2a71(trainHash, 48.70, 16.49, 102.56, 0, 1, 1, 1)
     local coords = GetEntityCoords(train)
     local trainV = vector3(coords.x, coords.y, coords.z)
     --Citizen.InvokeNative(0xBA8818212633500A, train, 0, 1) -- this makes the train undrivable for players
