@@ -1,29 +1,33 @@
 local TRAIN_HASHES = {
-    -1719006020 -- PASSENGER AND CARGO TRAIN [Carts - 10] -- [This one is pretty fast too]
+--    -1719006020 -- PASSENGER AND CARGO TRAIN [Carts - 10] -- [This one is pretty fast too]
+    987516329 -- SMALLER PASSENGER TRAIN - [Carts - 6]
 }
 
 CURRENT_TRAIN = nil
 
 local stops = {
-    {["dst"] = 180.0, ["dst2"] = 3.0, ["x"] = -142.67,  ["y"] = 654.18,   ["z"] = 113.52, ["time"] = 60000, ["name"] = "Valentine Station"},
-    {["dst"] = 180.0, ["dst2"] = 3.0, ["x"] = 2685.39,  ["y"] = -1480.33, ["z"] = 45.80,  ["time"] = 60000, ["name"] = "Saint Denis Station"},
-    {["dst"] = 180.0, ["dst2"] = 3.0, ["x"] = 1197.48,  ["y"] = -1282.29, ["z"] = 76.45,  ["time"] = 60000, ["name"] = "Rhodes Station"},
-    {["dst"] = 180.0, ["dst2"] = 3.0, ["x"] = -379.38,  ["y"] = -369.51,  ["z"] = 86.44,  ["time"] = 30000, ["name"] = "Flatneck Station"},
-    {["dst"] = 180.0, ["dst2"] = 3.0, ["x"] = -1118.27, ["y"] = -567.17,  ["z"] = 82.67,  ["time"] = 30000, ["name"] = "Riggs Station"},
-    {["dst"] = 180.0, ["dst2"] = 3.0, ["x"] = -1291.04, ["y"] = 440.69,   ["z"] = 94.36,  ["time"] = 30000, ["name"] = "Wallace Station"},
-    {["dst"] = 180.0, ["dst2"] = 3.0, ["x"] = 610.54,   ["y"] = 1661.53,  ["z"] = 188.0,  ["time"] = 30000, ["name"] = "Bacchus Station"},
-    {["dst"] = 180.0, ["dst2"] = 3.0, ["x"] = 2914.50,  ["y"] = 1238.53,  ["z"] = 44.73,  ["time"] = 60000, ["name"] = "Anusburg Station"},
-    {["dst"] = 180.0, ["dst2"] = 3.0, ["x"] = 2879.30,  ["y"] = 592.75,   ["z"] = 57.84,  ["time"] = 60000, ["name"] = "Van Horn Tradin Post"}
+    {["dst"] = 180.0, ["dst2"] = 4.0, ["x"] = -142.67,  ["y"] = 654.18,   ["z"] = 113.52, ["time"] = 60000, ["name"] = "Valentine Station"},
+    {["dst"] = 400.0, ["dst2"] = 4.0, ["x"] = 2685.39,  ["y"] = -1480.33, ["z"] = 45.80,  ["time"] = 60000, ["name"] = "Saint Denis Station"},
+    {["dst"] = 220.0, ["dst2"] = 4.0, ["x"] = 1197.48,  ["y"] = -1282.29, ["z"] = 76.45,  ["time"] = 60000, ["name"] = "Rhodes Station"},
+    {["dst"] = 220.0, ["dst2"] = 4.0, ["x"] = -379.38,  ["y"] = -369.51,  ["z"] = 86.44,  ["time"] = 30000, ["name"] = "Flatneck Station"},
+    {["dst"] = 180.0, ["dst2"] = 4.0, ["x"] = -1118.27, ["y"] = -567.17,  ["z"] = 82.67,  ["time"] = 30000, ["name"] = "Riggs Station"},
+    {["dst"] = 180.0, ["dst2"] = 4.0, ["x"] = -1291.04, ["y"] = 440.69,   ["z"] = 94.36,  ["time"] = 30000, ["name"] = "Wallace Station"},
+    {["dst"] = 180.0, ["dst2"] = 4.0, ["x"] = 610.54,   ["y"] = 1661.53,  ["z"] = 188.0,  ["time"] = 30000, ["name"] = "Bacchus Station"},
+    {["dst"] = 220.0, ["dst2"] = 4.0, ["x"] = 2914.50,  ["y"] = 1238.53,  ["z"] = 44.73,  ["time"] = 60000, ["name"] = "Annesburg Station"},
+    {["dst"] = 180.0, ["dst2"] = 4.0, ["x"] = 2879.30,  ["y"] = 592.75,   ["z"] = 57.84,  ["time"] = 60000, ["name"] = "Van Horn Tradin Post"}
 } 
 
 local trainspawned = false
-local onstartup = true
 
 Citizen.CreateThread(function()
-    while onstartup == true do
-        TriggerEvent('Trainroute')
-        Wait(5000)
-        onstartup = false
+    Wait(500)
+    while true do
+        Wait(1000)
+        local game = NetworkIsGameInProgress()
+        if game == 1 then
+            TriggerServerEvent('train:playerActivated')
+            return
+        end
     end
 end)
 
@@ -45,7 +49,7 @@ AddEventHandler('Trainroute', function(n)
     end
     --spawn--
     local ped = PlayerPedId()
-    local train = N_0xc239dbd9a57d2a71(trainHash, 48.70, 16.49, 102.56, 0, 1, 1, 1)
+    local train = N_0xc239dbd9a57d2a71(trainHash, 48.70, 16.49, 102.56, 0, 0, 1, 1)
     local coords = GetEntityCoords(train)
     local trainV = vector3(coords.x, coords.y, coords.z)
     --Citizen.InvokeNative(0xBA8818212633500A, train, 0, 1) -- this makes the train undrivable for players
@@ -55,7 +59,7 @@ AddEventHandler('Trainroute', function(n)
     local bliphash = -399496385
     local blip = Citizen.InvokeNative(0x23f74c2fda6e7c61, bliphash, train) -- BLIPADDFORENTITY
     SetBlipScale(blip, 1.5)
-    Citizen.InvokeNative(0x9CB1A1623062F402, blip, blipname) -- SetBlipNameFromPlayerString
+    --Citizen.InvokeNative(0x9CB1A1623062F402, blip, blipname) -- SetBlipNameFromPlayerString
     trainspawned = true
     CURRENT_TRAIN = train
     trainroute()
