@@ -5,3 +5,5 @@ the train checks if its within a distance set. if it is, it will stop for the se
 you can change times in the client file. default is 30 sec and 60 second.
 
 you can change speed in the client file. find local cruisespeed/fullspeed = (your speed)
+
+--THIS IS OLD AND BUGGY!-- NO SUPPORT WILL BE GIVEN!--
